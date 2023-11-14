@@ -1,0 +1,69 @@
+.tattooStyles {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    background-color: var(--black);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+}
+
+.tattooStylesTitle {
+    font-size: 30px;
+    font-family: var(--primaryFont);
+    color: var(--gold);
+    text-align: center;
+}
+
+.tattooStylesCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.tattooStylesCardsCard {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://i.pinimg.com/550x/af/69/28/af6928f6fb27e86909d11c35d6fd003f.jpg");
+    background-size: cover;
+    filter: grayscale(1) blur(2px);
+    text-decoration: none;
+    transition: 0.3s;
+    border: 2px solid var(--gold);
+}
+.tattooStylesCardsCard:hover {
+    filter: none;
+}
+
+.tattooStylesCardsCardName {
+    font-size: 20px;
+    font-family: var(--primaryFont);
+    color: var(--white);
+    text-shadow: 0 0 2px #000;
+}
+
+@media (max-width: 1100px) {
+    .tattooStylesCards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .tattooStylesCards {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tattooStyles {
+        padding: 50px 30px;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .tattooStylesCards {
+        grid-template-columns: 1fr;
+    }
+}

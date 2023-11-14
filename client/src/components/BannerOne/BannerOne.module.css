@@ -1,0 +1,38 @@
+.bannerOne {
+    background-image: url("../../assets/images/banner1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bannerOneData {
+    padding: 150px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bannerOneDataTitle {
+    font-size: 40px;
+    font-weight: 800;
+    font-family: var(--secondaryFont);
+    color: var(--gold);
+    text-shadow: 0 0 2px #000;
+}
+
+.bannerOneDataText {
+    font-size: 16px;
+    font-family: var(--primaryFont);
+    color: var(--white);
+}
+
+@media (max-width: 900px) {
+    .bannerOne {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .bannerOneData {
+        padding: 50px 20px;
+    }
+}

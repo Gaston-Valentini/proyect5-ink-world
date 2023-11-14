@@ -1,0 +1,18 @@
+.header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assets/images/header.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 660px) {
+    .headerLogo {
+        width: 80%;
+    }
+    .headerLogo img {
+        width: 100%;
+    }
+}

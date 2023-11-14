@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
+import Home from "./views/Home/Home";
 
 function App() {
     return (
@@ -9,7 +10,7 @@ function App() {
                 <Navbar/>
                 <Routes>
                     <Route path="*" element={<Navigate to={"/"}/>}/>
-                    <Route path="/" element={<div>Home</div>}/>
+                    <Route path="/" element={<Home/>}/>
                     <Route path="/styles/:id" element={<div>Style</div>}/>
                     <Route path="/register" element={<div>Register</div>}/>
                     <Route path="/login" element={<div>Login</div>}/>

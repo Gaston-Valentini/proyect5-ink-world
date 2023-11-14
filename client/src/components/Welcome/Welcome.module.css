@@ -1,0 +1,45 @@
+.welcome {
+    background-color: var(--black);
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+}
+
+.welcomeBox {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.welcomeTitle {
+    font-size: 30px;
+    font-family: var(--primaryFont);
+    color: var(--white);
+}
+
+.welcomeSubtitle {
+    font-size: 22px;
+    font-family: var(--secondaryFont);
+    color: var(--gold);
+}
+
+.welcomeText {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+}
+
+.welcome a {
+    font-weight: 800;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.welcome a:hover {
+    text-decoration: underline;
+}
