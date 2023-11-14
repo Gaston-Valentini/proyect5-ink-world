@@ -1,0 +1,11 @@
+:root {
+    --black: #1b1b1b;
+    --gold: #ffa500;
+    --white: #dddddd;
+    --primaryFont: "Rye";
+    --secondaryFont: "Roboto";
+}
+
+* {
+    margin: 0;
+}

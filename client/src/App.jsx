@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
+import Navbar from "./components/Navbar/Navbar";
+
 function App() {
     return (
         <Router>
             <div className="body">
+                <Navbar/>
                 <Routes>
                     <Route path="*" element={<Navigate to={"/"}/>}/>
                     <Route path="/" element={<div>Home</div>}/>
