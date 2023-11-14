@@ -1,3 +1,15 @@
 import app from "./app/app";
+import database from "./server/database";
 
-app.listen(3000, () => console.log("Ready"))
+const startServer = async () => {
+    try {
+        await database.initialize();
+        console.log("Connected to database");
+        app.listen(app.get("SERVER_PORT"));
+        console.log(`Server listening on port ${app.get("SERVER_PORT")}`);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+startServer();
