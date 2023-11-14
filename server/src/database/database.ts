@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import app from "../app/app";
 
-import { Users1698688727173 } from "../migrations/1699988262149-users";
+import { Users1699989447248 } from "../migrations/1699989447248-users";
 
 const database = new DataSource({
     type: "mysql",
@@ -13,7 +13,7 @@ const database = new DataSource({
     database: app.get("DB_NAME"),
     entities: [],
     migrations: [
-        Users1698688727173
+        Users1699989447248
     ],
     logging: false,
     synchronize: true,
