@@ -3,6 +3,7 @@ import { DataSource } from "typeorm";
 import app from "../app/app";
 
 import { Users1699989447248 } from "../migrations/1699989447248-users";
+import { Appointemnts1699989691708 } from "../migrations/1699989691708-appointemnts";
 
 const database = new DataSource({
     type: "mysql",
@@ -13,7 +14,8 @@ const database = new DataSource({
     database: app.get("DB_NAME"),
     entities: [],
     migrations: [
-        Users1699989447248
+        Users1699989447248,
+        Appointemnts1699989691708
     ],
     logging: false,
     synchronize: true,
