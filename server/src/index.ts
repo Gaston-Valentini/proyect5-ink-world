@@ -1,5 +1,5 @@
 import app from "./app/app";
-import database from "./server/database";
+import database from "./database/database";
 
 const startServer = async () => {
     try {
