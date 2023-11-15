@@ -10,6 +10,8 @@ const _1699989447248_users_1 = require("../migrations/1699989447248-users");
 const _1699989691708_appointemnts_1 = require("../migrations/1699989691708-appointemnts");
 const _1699990705212_gallery_1 = require("../migrations/1699990705212-gallery");
 const User_1 = require("../entities/User");
+const Appointment_1 = require("../entities/Appointment");
+const Gallery_1 = require("../entities/Gallery");
 const database = new typeorm_1.DataSource({
     type: "mysql",
     host: app_1.default.get("DB_HOST"),
@@ -17,7 +19,7 @@ const database = new typeorm_1.DataSource({
     username: app_1.default.get("DB_USERNAME"),
     password: app_1.default.get("DB_PASSWORD"),
     database: app_1.default.get("DB_NAME"),
-    entities: [User_1.User],
+    entities: [User_1.User, Appointment_1.Appointment, Gallery_1.Gallery],
     migrations: [
         _1699989447248_users_1.Users1699989447248,
         _1699989691708_appointemnts_1.Appointemnts1699989691708,

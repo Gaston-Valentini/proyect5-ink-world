@@ -6,6 +6,8 @@ import { Users1699989447248 } from "../migrations/1699989447248-users";
 import { Appointemnts1699989691708 } from "../migrations/1699989691708-appointemnts";
 import { Gallery1699990705212 } from "../migrations/1699990705212-gallery";
 import { User } from "../entities/User";
+import { Appointment } from "../entities/Appointment";
+import { Gallery } from "../entities/Gallery";
 
 const database = new DataSource({
     type: "mysql",
@@ -14,7 +16,7 @@ const database = new DataSource({
     username: app.get("DB_USERNAME"),
     password: app.get("DB_PASSWORD"),
     database: app.get("DB_NAME"),
-    entities: [User],
+    entities: [User, Appointment, Gallery],
     migrations: [
         Users1699989447248,
         Appointemnts1699989691708,

@@ -6,6 +6,7 @@ dotenv.config();
 import cors from "cors";
 
 import authRouter from "../views/authRouter";
+import galleryRoter from "../views/galleryRouter";
 
 // Settings
 app.set("SERVER_PORT", process.env.SERVER_PORT);
@@ -21,6 +22,7 @@ app.use(cors());
 
 // Router
 app.use("/auth", authRouter);
+app.use("/gallery", galleryRoter);
 
 // Export
 export default app;
