@@ -6,6 +6,7 @@ dotenv.config();
 import cors from "cors";
 
 import authRouter from "../views/authRouter";
+import userRouter from "../views/userRouter"
 import galleryRoter from "../views/galleryRouter";
 
 // Settings
@@ -22,6 +23,7 @@ app.use(cors());
 
 // Router
 app.use("/auth", authRouter);
+app.use("/user", userRouter)
 app.use("/gallery", galleryRoter);
 
 // Export
