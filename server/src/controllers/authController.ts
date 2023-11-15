@@ -9,7 +9,7 @@ const register = async (req: Request, res: Response) => {
     const userFound = await User.findOne({ where: { email } });
 
     if (userFound) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message:
                 "Ya existe un usuario registrado con ese correo electrónico.",
@@ -20,7 +20,7 @@ const register = async (req: Request, res: Response) => {
 
     User.create({ ...req.body, password: hashedPassword }).save();
 
-    return res.status(200).json({
+    return res.json({
         success: true,
         message: "Usuario registrado correctamente.",
     });
@@ -32,17 +32,17 @@ const login = async (req: Request, res: Response) => {
     const userFound = await User.findOne({ where: { email } });
 
     if (!userFound) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message:
                 "No existe un usuario registrado con ese correo electrónico.",
         });
     }
 
-    const unhashedPassword = bcrypt.compareSync(userFound.password, password);
+    const unhashedPassword = bcrypt.compareSync(password, userFound.password);
 
     if (!unhashedPassword) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message: "Contraseña incorrecta.",
         });
@@ -57,8 +57,8 @@ const login = async (req: Request, res: Response) => {
         { expiresIn: "24h" }
     );
 
-    return res.status(400).json({
-        success: false,
+    return res.json({
+        success: true,
         message: "Sesión iniciada.",
         token,
     });

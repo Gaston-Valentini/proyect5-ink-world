@@ -20,14 +20,14 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     const userFound = yield User_1.User.findOne({ where: { email } });
     if (userFound) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message: "Ya existe un usuario registrado con ese correo electrónico.",
         });
     }
     const hashedPassword = bcrypt_1.default.hashSync(password, 10);
     User_1.User.create(Object.assign(Object.assign({}, req.body), { password: hashedPassword })).save();
-    return res.status(200).json({
+    return res.json({
         success: true,
         message: "Usuario registrado correctamente.",
     });
@@ -37,14 +37,14 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     const userFound = yield User_1.User.findOne({ where: { email } });
     if (!userFound) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message: "No existe un usuario registrado con ese correo electrónico.",
         });
     }
-    const unhashedPassword = bcrypt_1.default.compareSync(userFound.password, password);
+    const unhashedPassword = bcrypt_1.default.compareSync(password, userFound.password);
     if (!unhashedPassword) {
-        return res.status(400).json({
+        return res.json({
             success: false,
             message: "Contraseña incorrecta.",
         });
@@ -53,8 +53,8 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         id: userFound.id,
         role: userFound.role,
     }, "secret", { expiresIn: "24h" });
-    return res.status(400).json({
-        success: false,
+    return res.json({
+        success: true,
         message: "Sesión iniciada.",
         token,
     });

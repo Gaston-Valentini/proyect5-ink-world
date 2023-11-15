@@ -7,6 +7,7 @@ import {
 
 import Navbar from "./components/Navbar/Navbar";
 import Register from "./views/Register/Register";
+import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/styles/:id" element={<div>Style</div>} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<div>Login</div>} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/gallery" element={<div>Gallery</div>} />
                     <Route path="/advices" element={<div>Advices</div>} />
                     <Route
