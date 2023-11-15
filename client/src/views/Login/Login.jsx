@@ -121,7 +121,8 @@ export default function Login() {
                         Registrarse
                     </div>
                     <div className={style.loginFormButtonsRedirect}>
-                        ¿Aún no tienes una cuenta? <Link>Registrate</Link>.
+                        ¿Aún no tienes una cuenta?{" "}
+                        <Link to={"/register"}>Registrate</Link>
                     </div>
                 </div>
             </div>

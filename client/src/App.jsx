@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
+import Gallery from "./views/Gallery/Gallery";
 import Contact from "./views/Contact/Contact";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
                     <Route path="/styles/:id" element={<div>Style</div>} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/gallery" element={<div>Gallery</div>} />
+                    <Route path="/gallery" element={<Gallery />} />
                     <Route path="/advices" element={<div>Advices</div>} />
                     <Route
                         path="/tattoo-artists"
