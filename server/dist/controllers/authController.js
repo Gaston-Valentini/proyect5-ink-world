@@ -12,8 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = void 0;
+exports.login = exports.register = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const User_1 = require("../entities/User");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
@@ -32,3 +33,30 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 exports.register = register;
+const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, password } = req.body;
+    const userFound = yield User_1.User.findOne({ where: { email } });
+    if (!userFound) {
+        return res.status(400).json({
+            success: false,
+            message: "No existe un usuario registrado con ese correo electrónico.",
+        });
+    }
+    const unhashedPassword = bcrypt_1.default.compareSync(userFound.password, password);
+    if (!unhashedPassword) {
+        return res.status(400).json({
+            success: false,
+            message: "Contraseña incorrecta.",
+        });
+    }
+    const token = jsonwebtoken_1.default.sign({
+        id: userFound.id,
+        role: userFound.role,
+    }, "secret", { expiresIn: "24h" });
+    return res.status(400).json({
+        success: false,
+        message: "Sesión iniciada.",
+        token,
+    });
+});
+exports.login = login;
