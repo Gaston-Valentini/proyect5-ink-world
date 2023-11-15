@@ -87,6 +87,7 @@ export default function Login() {
                         <input
                             className={style.loginFormDataSectionInput}
                             placeholder="Email..."
+                            maxLength={50}
                             name="email"
                             type="email"
                             onBlur={onInput}
@@ -102,6 +103,7 @@ export default function Login() {
                         <input
                             className={style.loginFormDataSectionInput}
                             placeholder="Contraseña..."
+                            maxLength={50}
                             type="password"
                             name="password"
                             onBlur={onInput}

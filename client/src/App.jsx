@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
+import Contact from "./views/Contact/Contact";
 
 function App() {
     return (
@@ -31,7 +32,7 @@ function App() {
                         path="/make-appointment"
                         element={<div>Make Appointment</div>}
                     />
-                    <Route path="/contact" element={<div>Contact</div>} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/profile" element={<div>Profile</div>} />
                 </Routes>
             </div>
