@@ -28,7 +28,9 @@ export default function Navbar() {
                 </div>
                 <div className={style.navbarButtonsMenus}>
                     <Link to={"profile"}>
-                        <CgProfile className={style.navbarButtonsMenusProfile} />
+                        <CgProfile
+                            className={style.navbarButtonsMenusProfile}
+                        />
                     </Link>
                     <RxHamburgerMenu
                         className={style.navbarButtonsMenusMenu}

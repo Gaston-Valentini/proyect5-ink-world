@@ -35,7 +35,7 @@ class Appointemnts1699989691708 {
                     {
                         name: "name",
                         type: "varchar",
-                        length: "255"
+                        length: "255",
                     },
                     {
                         name: "description",
@@ -54,7 +54,7 @@ class Appointemnts1699989691708 {
                         name: "style",
                         type: "varchar",
                         length: "255",
-                    }
+                    },
                 ],
                 foreignKeys: [
                     {

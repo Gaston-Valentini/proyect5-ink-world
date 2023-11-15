@@ -21,7 +21,7 @@ const database = new typeorm_1.DataSource({
     migrations: [
         _1699989447248_users_1.Users1699989447248,
         _1699989691708_appointemnts_1.Appointemnts1699989691708,
-        _1699990705212_gallery_1.Gallery1699990705212
+        _1699990705212_gallery_1.Gallery1699990705212,
     ],
     logging: false,
     synchronize: true,

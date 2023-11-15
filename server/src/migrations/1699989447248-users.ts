@@ -42,7 +42,7 @@ export class Users1699989447248 implements MigrationInterface {
                         name: "description",
                         type: "varchar",
                         length: "255",
-                        default: "''"
+                        default: "''",
                     },
                     {
                         name: "style",

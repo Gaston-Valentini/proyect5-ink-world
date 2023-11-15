@@ -1,0 +1,124 @@
+.register {
+    height: calc(100vh - 50px);
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.registerLogo {
+    height: 500px;
+}
+
+.registerLogo img {
+    height: 100%;
+}
+
+.registerForm {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.registerFormTitle {
+    font-size: 30px;
+    font-family: var(--primaryFont);
+    text-align: center;
+    color: var(--gold);
+}
+
+.registerFormData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.registerFormDataSection {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.registerFormDataSectionTitle {
+    font-size: 16px;
+    font-family: var(--primaryFont);
+    font-weight: 100;
+    color: var(--white);
+}
+
+.registerFormDataSectionInput {
+    font-size: 16px;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+    background-color: var(--black);
+    border: none;
+    border-bottom: 2px solid #936000;
+}
+.registerFormDataSectionInput:focus {
+    outline: none;
+    border-bottom: 2px solid var(--gold);
+    background: linear-gradient(to top, rgb(58, 58, 58), var(--black));
+}
+
+.registerFormDataSectionError {
+    max-width: 100%;
+    font-size: 12px;
+    font-family: var(--secondaryFont);
+    font-weight: 100;
+    color: red;
+}
+
+.registerFormDataCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+}
+
+.registerFormButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.registerFormButtonsSubmit {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+    border: 2px solid var(--gold);
+}
+.registerFormButtonsSubmit:hover {
+    cursor: pointer;
+    color: var(--black);
+    background-color: var(--gold);
+}
+
+.registerFormButtonsRedirect {
+    text-align: center;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+}
+
+.registerFormButtonsRedirect a {
+    font-family: var(--primaryFont);
+    text-decoration: none;
+    color: var(--gold);
+}
+
+.registerFormButtonsRedirect a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .registerLogo {
+        display: none;
+    }
+}

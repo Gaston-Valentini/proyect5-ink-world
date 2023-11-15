@@ -24,7 +24,7 @@ export class Appointemnts1699989691708 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
-                        length: "255"
+                        length: "255",
                     },
                     {
                         name: "description",
@@ -43,7 +43,7 @@ export class Appointemnts1699989691708 implements MigrationInterface {
                         name: "style",
                         type: "varchar",
                         length: "255",
-                    }
+                    },
                 ],
                 foreignKeys: [
                     {

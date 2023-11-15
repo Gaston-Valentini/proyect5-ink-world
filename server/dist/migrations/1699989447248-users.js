@@ -53,7 +53,7 @@ class Users1699989447248 {
                         name: "description",
                         type: "varchar",
                         length: "255",
-                        default: "''"
+                        default: "''",
                     },
                     {
                         name: "style",

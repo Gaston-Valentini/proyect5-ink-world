@@ -27,13 +27,13 @@ export class User extends BaseEntity {
     @Column()
     phone!: number;
 
-    @Column()
+    @Column({ default: "" })
     description!: string;
 
-    @Column()
+    @Column({ default: "" })
     style!: string;
 
-    @Column()
+    @Column({ default: "" })
     image!: string;
 
     @Column()
