@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStyles = void 0;
+exports.getOneStyle = exports.getStyles = void 0;
 const Style_1 = require("../entities/Style");
 const getStyles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -23,3 +23,16 @@ const getStyles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getStyles = getStyles;
+const getOneStyle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const name = req.params.name;
+    try {
+        const style = yield Style_1.Style.findOne({ where: { name } });
+        return res.status(200).json({
+            style,
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
+exports.getOneStyle = getOneStyle;

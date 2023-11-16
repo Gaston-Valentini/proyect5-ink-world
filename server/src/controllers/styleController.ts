@@ -14,4 +14,18 @@ const getStyles = async (req: Request, res: Response) => {
     }
 };
 
-export { getStyles };
+const getOneStyle = async (req: Request, res: Response) => {
+    const name = req.params.name;
+
+    try {
+        const style = await Style.findOne({ where: { name } });
+
+        return res.status(200).json({
+            style,
+        });
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export { getStyles, getOneStyle };

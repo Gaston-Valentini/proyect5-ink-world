@@ -21,7 +21,7 @@ function App() {
                 <Routes>
                     <Route path="*" element={<Navigate to={"/"} />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/styles/:id" element={<TattooStyle />} />
+                    <Route path="/styles/:name" element={<TattooStyle />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/gallery" element={<Gallery />} />
