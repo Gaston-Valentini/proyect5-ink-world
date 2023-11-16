@@ -17,4 +17,17 @@ const getUser = async (req: Request, res: Response) => {
     }
 };
 
-export { getUser }
+const getTattooArtists = async (req: Request, res: Response) => {
+    try {
+        const tattooArtists = await User.find({ where: { role: "tattooArtist" } });
+
+        return res.json({
+            success: true,
+            tattooArtists,
+        });
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+export { getUser, getTattooArtists }

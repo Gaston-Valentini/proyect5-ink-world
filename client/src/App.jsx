@@ -10,6 +10,7 @@ import TattooStyle from "./views/TattooStyle/TattooStyle";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
+import TattooArtists from "./views/TattooArtists/TattooArtists";
 import Gallery from "./views/Gallery/Gallery";
 import Contact from "./views/Contact/Contact";
 
@@ -28,7 +29,7 @@ function App() {
                     <Route path="/advices" element={<div>Advices</div>} />
                     <Route
                         path="/tattoo-artists"
-                        element={<div>TattooArtist</div>}
+                        element={<TattooArtists/>}
                     />
                     <Route
                         path="/make-appointment"

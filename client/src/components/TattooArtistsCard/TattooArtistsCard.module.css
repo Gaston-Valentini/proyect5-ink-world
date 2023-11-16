@@ -1,0 +1,49 @@
+.tattooArtist {
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.tattooArtistData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tattooArtistDataName {
+    font-size: 30px;
+    font-family: var(--secondaryFont);
+    font-weight: 800;
+    color: var(--gold);
+}
+
+.tattooArtistDataStyle {
+    font-size: 16px;
+    font-family: var(--primaryFont);
+    color: var(--white);
+}
+
+.tattooArtistDataText {
+    font-size: 16px;
+    font-family: var(--secondaryFont);
+    font-weight: 100;
+    color: var(--white);
+}
+
+.tattooArtistImage {
+    height: 300px;
+    border: 2px solid var(--gold);
+}
+
+.tattooArtistImage img {
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .tattooArtist {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+    }
+}

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getUser } from "../controllers/userController";
+import { getUser, getTattooArtists } from "../controllers/userController";
 
 const router = Router();
 
 router.get("/getUser/:id", getUser);
+router.get("/getTattooArtists", getTattooArtists)
 
 export default router;
