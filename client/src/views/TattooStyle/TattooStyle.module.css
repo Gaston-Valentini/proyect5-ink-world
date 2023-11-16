@@ -1,0 +1,52 @@
+.tattooStyle {
+    min-height: calc(100vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.container {
+    max-width: 700px;
+    padding: 70px 20px 20px 20px;
+}
+
+.containerTitle {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family: var(--primaryFont);
+    color: var(--gold);
+}
+
+.containerText {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+    text-align: justify;
+}
+
+.containerImage {
+    height: 250px;
+    width: 200px;
+    float: right;
+    margin: 0 0 15px 20px;
+    border: 2px solid var(--gold);
+}
+
+.containerImage img {
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 490px) {
+    .containerTitle {
+        text-align: center;
+    }
+
+    .containerText {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

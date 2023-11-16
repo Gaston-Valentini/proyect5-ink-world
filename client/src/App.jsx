@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
+import TattooStyle from "./views/TattooStyle/TattooStyle";
 import Register from "./views/Register/Register";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
@@ -20,7 +21,7 @@ function App() {
                 <Routes>
                     <Route path="*" element={<Navigate to={"/"} />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/styles/:id" element={<div>Style</div>} />
+                    <Route path="/styles/:id" element={<TattooStyle />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/gallery" element={<Gallery />} />
