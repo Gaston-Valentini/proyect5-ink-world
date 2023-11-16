@@ -12,6 +12,7 @@ import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
 import TattooArtists from "./views/TattooArtists/TattooArtists";
 import Gallery from "./views/Gallery/Gallery";
+import MakeAppointment from "./views/MakeAppointment/MakeAppointment";
 import Contact from "./views/Contact/Contact";
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
                     />
                     <Route
                         path="/make-appointment"
-                        element={<div>Make Appointment</div>}
+                        element={<MakeAppointment />}
                     />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/profile" element={<div>Profile</div>} />
