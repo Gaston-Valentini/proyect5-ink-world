@@ -11,6 +11,7 @@ dotenv_1.default.config();
 const cors_1 = __importDefault(require("cors"));
 const authRouter_1 = __importDefault(require("../views/authRouter"));
 const userRouter_1 = __importDefault(require("../views/userRouter"));
+const styleRouter_1 = __importDefault(require("../views/styleRouter"));
 const galleryRouter_1 = __importDefault(require("../views/galleryRouter"));
 // Settings
 app.set("SERVER_PORT", process.env.SERVER_PORT);
@@ -25,6 +26,7 @@ app.use((0, cors_1.default)());
 // Router
 app.use("/auth", authRouter_1.default);
 app.use("/user", userRouter_1.default);
+app.use("/styles", styleRouter_1.default);
 app.use("/gallery", galleryRouter_1.default);
 // Export
 exports.default = app;
