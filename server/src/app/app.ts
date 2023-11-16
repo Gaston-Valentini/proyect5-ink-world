@@ -9,6 +9,7 @@ import authRouter from "../views/authRouter";
 import userRouter from "../views/userRouter";
 import styleRouter from "../views/styleRouter";
 import galleryRoter from "../views/galleryRouter";
+import appointmentRouter from "../views/appointmentRouter";
 
 // Settings
 app.set("SERVER_PORT", process.env.SERVER_PORT);
@@ -27,6 +28,7 @@ app.use("/auth", authRouter);
 app.use("/user", userRouter);
 app.use("/styles", styleRouter);
 app.use("/gallery", galleryRoter);
+app.use("/appointment", appointmentRouter);
 
 // Export
 export default app;

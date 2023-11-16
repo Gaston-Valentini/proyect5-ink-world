@@ -13,6 +13,7 @@ const authRouter_1 = __importDefault(require("../views/authRouter"));
 const userRouter_1 = __importDefault(require("../views/userRouter"));
 const styleRouter_1 = __importDefault(require("../views/styleRouter"));
 const galleryRouter_1 = __importDefault(require("../views/galleryRouter"));
+const appointmentRouter_1 = __importDefault(require("../views/appointmentRouter"));
 // Settings
 app.set("SERVER_PORT", process.env.SERVER_PORT);
 app.set("DB_HOST", process.env.DB_HOST);
@@ -28,5 +29,6 @@ app.use("/auth", authRouter_1.default);
 app.use("/user", userRouter_1.default);
 app.use("/styles", styleRouter_1.default);
 app.use("/gallery", galleryRouter_1.default);
+app.use("/appointment", appointmentRouter_1.default);
 // Export
 exports.default = app;

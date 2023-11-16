@@ -42,7 +42,10 @@ export default function MakeAppointment() {
 
         if (!canSubmit) {
             try {
-                axios.post("http://localhost:3000/auth/register", fields);
+                axios.post(
+                    "http://localhost:3000/appointment/makeAppointment",
+                    fields
+                );
                 navigate("/profile");
             } catch (error) {
                 console.log(error);
