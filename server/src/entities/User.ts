@@ -33,7 +33,10 @@ export class User extends BaseEntity {
     @Column({ default: "" })
     style!: string;
 
-    @Column({ default: "" })
+    @Column({
+        default:
+            "https://www.shutterstock.com/image-vector/avatar-man-icon-profile-placeholder-600nw-1229859850.jpg",
+    })
     image!: string;
 
     @Column()

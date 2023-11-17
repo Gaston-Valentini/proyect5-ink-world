@@ -10,7 +10,6 @@ const makeAppointment = async (req: Request, res: Response) => {
 
     const newApp = Appointment.create({
         ...req.body,
-        clientId: 3,
         tattooArtistId: tattooArtist?.id,
     }).save();
 
@@ -25,4 +24,17 @@ const makeAppointment = async (req: Request, res: Response) => {
     }
 };
 
-export { makeAppointment };
+const getMyAppointmentsClient = async (req: Request, res: Response) => {
+    const userId = req.body.id;
+
+    const appointments = await Appointment.find({
+        where: { clientId: userId },
+    });
+
+    return res.json({
+        success: true,
+        appointments,
+    });
+};
+
+export { makeAppointment, getMyAppointmentsClient };

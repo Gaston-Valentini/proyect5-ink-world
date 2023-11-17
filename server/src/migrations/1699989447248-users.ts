@@ -54,7 +54,8 @@ export class Users1699989447248 implements MigrationInterface {
                         name: "image",
                         type: "varchar",
                         length: "2084",
-                        default: "''",
+                        default:
+                            "https://www.shutterstock.com/image-vector/avatar-man-icon-profile-placeholder-600nw-1229859850.jpg",
                     },
                     {
                         name: "role",

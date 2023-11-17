@@ -61,6 +61,7 @@ export default function Login() {
                     }));
                 }
                 if (res.data.success) {
+                    localStorage.setItem("token", res.data.token);
                     navigate("/profile");
                 }
             } catch (error) {

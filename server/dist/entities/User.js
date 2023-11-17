@@ -47,7 +47,9 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "style", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: "" }),
+    (0, typeorm_1.Column)({
+        default: "https://www.shutterstock.com/image-vector/avatar-man-icon-profile-placeholder-600nw-1229859850.jpg",
+    }),
     __metadata("design:type", String)
 ], User.prototype, "image", void 0);
 __decorate([

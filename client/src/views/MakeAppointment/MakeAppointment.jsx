@@ -3,12 +3,14 @@ import style from "./MakeAppointment.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export default function MakeAppointment() {
     const navigate = useNavigate();
     const [tattooArtists, setTattooArtists] = useState([]);
     const [tattooStyles, setTattooStyles] = useState([]);
     const [fields, setFields] = useState({
+        clientId: "",
         tattooArtist: "",
         name: "",
         description: "",
@@ -25,10 +27,16 @@ export default function MakeAppointment() {
             const res2 = await axios.get("http://localhost:3000/styles");
             setTattooArtists(res.data.tattooArtists);
             setTattooStyles(res2.data.styles);
+            const token = jwtDecode(localStorage.getItem("token"));
+            fields.clientId = token.id;
         };
 
         getData();
     }, []);
+
+    useEffect(() => {
+        console.log(fields);
+    }, [fields]);
 
     const onInput = (e) => {
         setFields((prevState) => ({

@@ -9,14 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeAppointment = void 0;
+exports.getMyAppointmentsClient = exports.makeAppointment = void 0;
 const Appointment_1 = require("../entities/Appointment");
 const User_1 = require("../entities/User");
 const makeAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const tattooArtist = yield User_1.User.findOne({
         where: { name: req.body.tattooArtist },
     });
-    const newApp = Appointment_1.Appointment.create(Object.assign(Object.assign({}, req.body), { clientId: 3, tattooArtistId: tattooArtist === null || tattooArtist === void 0 ? void 0 : tattooArtist.id })).save();
+    const newApp = Appointment_1.Appointment.create(Object.assign(Object.assign({}, req.body), { tattooArtistId: tattooArtist === null || tattooArtist === void 0 ? void 0 : tattooArtist.id })).save();
     try {
         return res.json({
             success: true,
@@ -29,3 +29,14 @@ const makeAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.makeAppointment = makeAppointment;
+const getMyAppointmentsClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = req.body.id;
+    const appointments = yield Appointment_1.Appointment.find({
+        where: { clientId: userId },
+    });
+    return res.json({
+        success: true,
+        appointments,
+    });
+});
+exports.getMyAppointmentsClient = getMyAppointmentsClient;
