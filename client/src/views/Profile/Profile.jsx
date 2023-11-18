@@ -7,28 +7,41 @@ import { convertDate } from "../../functions/convertDate";
 import AppointmentCard from "../../components/AppointmentCard/AppointmentCard";
 
 export default function Profile() {
+    const token = jwtDecode(localStorage.getItem("token"));
     const [user, setUser] = useState({});
     const [appointments, setAppointments] = useState([]);
 
-    useEffect(() => {
-        const getData = async () => {
-            const token = jwtDecode(localStorage.getItem("token"));
-            const res = await axios.get(
-                `http://localhost:3000/user/getUser/${token.id}`
-            );
-            setUser(res.data.userFound);
-            const res2 = await axios.get(
-                `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
-            );
-            setAppointments(res2.data.appointments);
-        };
+    if (token.role === "client") {
+        useEffect(() => {
+            const getData = async () => {
+                const res = await axios.get(
+                    `http://localhost:3000/user/getUser/${token.id}`
+                );
+                setUser(res.data.userFound);
+                const res2 = await axios.get(
+                    `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
+                );
+                setAppointments(res2.data.appointments);
+            };
 
-        getData();
-    }, []);
+            getData();
+        }, []);
+    } else {
+        useEffect(() => {
+            const getData = async () => {
+                const res = await axios.get(
+                    `http://localhost:3000/user/getUser/${token.id}`
+                );
+                setUser(res.data.userFound);
+                const res2 = await axios.get(
+                    `http://localhost:3000/appointment/getMyAppointmentsTattooArtist/${token.id}`
+                );
+                setAppointments(res2.data.appointments);
+            };
 
-    useEffect(() => {
-        console.log(appointments);
-    }, [user]);
+            getData();
+        }, []);
+    }
 
     return (
         <div className={style.profile}>

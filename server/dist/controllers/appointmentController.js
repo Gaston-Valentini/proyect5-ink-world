@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMyAppointmentsClient = exports.makeAppointment = void 0;
+exports.cancelAppointment = exports.getMyAppointmentsTattooArtist = exports.getMyAppointmentsClient = exports.makeAppointment = void 0;
 const Appointment_1 = require("../entities/Appointment");
 const User_1 = require("../entities/User");
 const makeAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,3 +40,24 @@ const getMyAppointmentsClient = (req, res) => __awaiter(void 0, void 0, void 0, 
     });
 });
 exports.getMyAppointmentsClient = getMyAppointmentsClient;
+const getMyAppointmentsTattooArtist = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = parseInt(req.params.id);
+    const appointments = yield Appointment_1.Appointment.find({
+        where: { tattooArtistId: userId },
+    });
+    return res.json({
+        success: true,
+        appointments,
+    });
+});
+exports.getMyAppointmentsTattooArtist = getMyAppointmentsTattooArtist;
+const cancelAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = parseInt(req.params.id);
+    const appointmentsToCancel = yield User_1.User.findOne({ where: { id: userId } });
+    Appointment_1.Appointment.delete(appointmentsToCancel.id);
+    return res.json({
+        success: true,
+        message: "Cita cancelada",
+    });
+});
+exports.cancelAppointment = cancelAppointment;

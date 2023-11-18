@@ -15,6 +15,7 @@
 
 .profileData {
     display: flex;
+    justify-content: space-between;
     gap: 50px;
 }
 
@@ -37,6 +38,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border: 2px solid var(--gold);
 }
 
 .profileDataForm {
@@ -94,4 +96,54 @@
     cursor: pointer;
     color: var(--black);
     background-color: var(--gold);
+}
+
+.profileDataAppointmentsList {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 1700px) {
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1500px) {
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1250px) {
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .profile {
+        padding: 70px 20px 20px;
+    }
+    .profileData {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .profileDataAppointmentsList {
+        grid-template-columns: 1fr;
+    }
 }

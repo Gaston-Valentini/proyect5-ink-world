@@ -37,4 +37,35 @@ const getMyAppointmentsClient = async (req: Request, res: Response) => {
     });
 };
 
-export { makeAppointment, getMyAppointmentsClient };
+const getMyAppointmentsTattooArtist = async (req: Request, res: Response) => {
+    const userId = parseInt(req.params.id);
+
+    const appointments = await Appointment.find({
+        where: { tattooArtistId: userId },
+    });
+
+    return res.json({
+        success: true,
+        appointments,
+    });
+};
+
+const cancelAppointment = async (req: Request, res: Response) => {
+    const userId = parseInt(req.params.id);
+
+    const appointmentsToCancel = await User.findOne({ where: { id: userId } });
+
+    Appointment.delete(appointmentsToCancel!.id);
+
+    return res.json({
+        success: true,
+        message: "Cita cancelada",
+    });
+};
+
+export {
+    makeAppointment,
+    getMyAppointmentsClient,
+    getMyAppointmentsTattooArtist,
+    cancelAppointment,
+};

@@ -28,7 +28,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("https://i.pinimg.com/550x/af/69/28/af6928f6fb27e86909d11c35d6fd003f.jpg");
     background-size: cover;
     filter: grayscale(1) blur(2px);
     text-decoration: none;

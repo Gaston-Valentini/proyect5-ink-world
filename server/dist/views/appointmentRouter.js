@@ -5,4 +5,6 @@ const appointmentController_1 = require("../controllers/appointmentController");
 const router = (0, express_1.Router)();
 router.post("/makeAppointment", appointmentController_1.makeAppointment);
 router.get("/getMyAppointmentsClient/:id", appointmentController_1.getMyAppointmentsClient);
+router.get("/getMyAppointmentsTattooArtist/:id", appointmentController_1.getMyAppointmentsTattooArtist);
+router.delete("/cancelAppointment/:id", appointmentController_1.cancelAppointment);
 exports.default = router;

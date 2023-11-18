@@ -26,6 +26,7 @@ export default function TattooStyles() {
                         key={e.id}
                         to={`styles/${e.name}`}
                         className={style.tattooStylesCardsCard}
+                        style={{ backgroundImage: `url(${e.image})` }}
                     >
                         <div className={style.tattooStylesCardsCardName}>
                             {e.name}
