@@ -31,7 +31,7 @@ class Styles1700128787117 {
                     },
                     {
                         name: "text",
-                        type: "text",
+                        type: "longtext",
                     },
                     {
                         name: "image",

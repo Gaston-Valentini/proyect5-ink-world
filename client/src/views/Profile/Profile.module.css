@@ -84,6 +84,14 @@
     background: linear-gradient(to top, rgb(58, 58, 58), var(--black));
 }
 
+.profileDataFormSectionError {
+    max-width: 100%;
+    font-size: 12px;
+    font-family: var(--secondaryFont);
+    font-weight: 100;
+    color: red;
+}
+
 .profileDataFormSubmit {
     padding: 10px;
     font-size: 16px;

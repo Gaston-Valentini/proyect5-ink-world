@@ -1,15 +1,26 @@
 import style from "./Profile.module.css";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { convertDate } from "../../functions/convertDate";
+import { validateField } from "../../validations/validateField";
 import AppointmentCard from "../../components/AppointmentCard/AppointmentCard";
 
 export default function Profile() {
+    const navigate = useNavigate();
     const token = jwtDecode(localStorage.getItem("token"));
     const [user, setUser] = useState({});
     const [appointments, setAppointments] = useState([]);
+    const [data, setData] = useState({});
+    const [error, setError] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        password: "",
+        phone: "",
+    });
 
     if (token.role === "client") {
         useEffect(() => {
@@ -42,6 +53,43 @@ export default function Profile() {
             getData();
         }, []);
     }
+
+    const onInput = (e) => {
+        const { name, value } = e.target;
+
+        const isValid = validateField(name, value);
+
+        setData((estadoPrevio) => ({
+            ...estadoPrevio,
+            [name]: value,
+        }));
+
+        setError((errorPrevio) => ({
+            ...errorPrevio,
+            [name]: isValid === true ? "" : isValid,
+        }));
+    };
+
+    const onSave = async () => {
+        const haveErrors = Object.values(error).some((err) => err !== "");
+
+        if (!haveErrors) {
+            try {
+                const res = await axios.post(
+                    `http://localhost:3000/user/updateProfile/${token.id}`,
+                    data
+                );
+                console.log(res);
+                navigate("/");
+            } catch (error) {
+                console.log(error);
+                setError((prevState) => ({
+                    ...prevState,
+                    email: error.response.data.message,
+                }));
+            }
+        }
+    };
 
     return (
         <div className={style.profile}>
@@ -89,7 +137,14 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Nombre..."
+                            maxLength={20}
+                            type="text"
+                            name="name"
+                            onBlur={onInput}
                         />
+                        <span className={style.profileDataFormSectionError}>
+                            {error.name}
+                        </span>
                     </div>
                     <div className={style.profileDataFormSection}>
                         <div className={style.profileDataFormSectionTitle}>
@@ -98,7 +153,14 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Apellido..."
+                            maxLength={20}
+                            type="text"
+                            name="surname"
+                            onBlur={onInput}
                         />
+                        <span className={style.profileDataFormSectionError}>
+                            {error.surname}
+                        </span>
                     </div>
                     <div className={style.profileDataFormSection}>
                         <div className={style.profileDataFormSectionTitle}>
@@ -107,7 +169,14 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Nuevo email..."
+                            maxLength={50}
+                            type="email"
+                            name="email"
+                            onBlur={onInput}
                         />
+                        <span className={style.profileDataFormSectionError}>
+                            {error.email}
+                        </span>
                     </div>
                     <div className={style.profileDataFormSection}>
                         <div className={style.profileDataFormSectionTitle}>
@@ -116,7 +185,14 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Nueva contraseña..."
+                            maxLength={20}
+                            type="password"
+                            name="password"
+                            onBlur={onInput}
                         />
+                        <span className={style.profileDataFormSectionError}>
+                            {error.password}
+                        </span>
                     </div>
                     <div className={style.profileDataFormSection}>
                         <div className={style.profileDataFormSectionTitle}>
@@ -125,7 +201,14 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Teléfono..."
+                            maxLength={9}
+                            type="text"
+                            name="phone"
+                            onBlur={onInput}
                         />
+                        <span className={style.profileDataFormSectionError}>
+                            {error.phone}
+                        </span>
                     </div>
                     <div className={style.profileDataFormSection}>
                         <div className={style.profileDataFormSectionTitle}>
@@ -134,6 +217,10 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="Un breve resumen..."
+                            maxLength={500}
+                            type="text"
+                            name="description"
+                            onBlur={onInput}
                         />
                     </div>
                     <div className={style.profileDataFormSection}>
@@ -143,9 +230,18 @@ export default function Profile() {
                         <input
                             className={style.profileDataFormSectionInput}
                             placeholder="URL de tu foto de perfil"
+                            maxLength={500}
+                            type="text"
+                            name="image"
+                            onBlur={onInput}
                         />
                     </div>
-                    <div className={style.profileDataFormSubmit}>Guardar</div>
+                    <div
+                        className={style.profileDataFormSubmit}
+                        onClick={onSave}
+                    >
+                        Guardar
+                    </div>
                 </div>
                 <div className={style.profileDataAppointments}>
                     <div className={style.profileDataAppointmentsTitle}>

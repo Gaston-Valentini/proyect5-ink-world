@@ -20,7 +20,7 @@ export class Styles1700128787117 implements MigrationInterface {
                     },
                     {
                         name: "text",
-                        type: "text",
+                        type: "longtext",
                     },
                     {
                         name: "image",
