@@ -30,7 +30,7 @@ const makeAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function
 });
 exports.makeAppointment = makeAppointment;
 const getMyAppointmentsClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const userId = req.body.id;
+    const userId = parseInt(req.params.id);
     const appointments = yield Appointment_1.Appointment.find({
         where: { clientId: userId },
     });

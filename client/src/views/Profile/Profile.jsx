@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { convertDate } from "../../functions/convertDate";
+import AppointmentCard from "../../components/AppointmentCard/AppointmentCard";
 
 export default function Profile() {
     const [user, setUser] = useState({});
@@ -16,10 +17,18 @@ export default function Profile() {
                 `http://localhost:3000/user/getUser/${token.id}`
             );
             setUser(res.data.userFound);
+            const res2 = await axios.get(
+                `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
+            );
+            setAppointments(res2.data.appointments);
         };
 
         getData();
     }, []);
+
+    useEffect(() => {
+        console.log(appointments);
+    }, [user]);
 
     return (
         <div className={style.profile}>
@@ -129,7 +138,11 @@ export default function Profile() {
                     <div className={style.profileDataAppointmentsTitle}>
                         Tus citas
                     </div>
-                    <div className={style.profileDataAppointmentsList}></div>
+                    <div className={style.profileDataAppointmentsList}>
+                        {appointments.map((e) => (
+                            <AppointmentCard key={e.id} data={e} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

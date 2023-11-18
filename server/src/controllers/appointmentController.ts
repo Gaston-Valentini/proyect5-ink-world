@@ -25,7 +25,7 @@ const makeAppointment = async (req: Request, res: Response) => {
 };
 
 const getMyAppointmentsClient = async (req: Request, res: Response) => {
-    const userId = req.body.id;
+    const userId = parseInt(req.params.id);
 
     const appointments = await Appointment.find({
         where: { clientId: userId },
