@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTattooArtists = exports.getUser = void 0;
+exports.updateUser = exports.getTattooArtists = exports.getUser = void 0;
 const User_1 = require("../entities/User");
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -27,7 +27,9 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getUser = getUser;
 const getTattooArtists = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const tattooArtists = yield User_1.User.find({ where: { role: "tattooArtist" } });
+        const tattooArtists = yield User_1.User.find({
+            where: { role: "tattooArtist" },
+        });
         return res.json({
             success: true,
             tattooArtists,
@@ -38,3 +40,17 @@ const getTattooArtists = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.getTattooArtists = getTattooArtists;
+const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = parseInt(req.params.id);
+    try {
+        User_1.User.update({ id }, req.body);
+        return res.json({
+            success: true,
+            message: "Usuario actualizado.",
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
+exports.updateUser = updateUser;
