@@ -8,9 +8,9 @@ export class Style extends BaseEntity {
     @Column()
     name!: string;
 
-    @Column()
+    @Column({ length: 1000 })
     text!: string;
 
-    @Column()
+    @Column({ length: 1000 })
     image!: string;
 }

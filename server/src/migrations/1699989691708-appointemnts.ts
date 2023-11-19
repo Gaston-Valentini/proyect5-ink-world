@@ -23,12 +23,12 @@ export class Appointemnts1699989691708 implements MigrationInterface {
                     },
                     {
                         name: "name",
-                        type: "varchar",
-                        length: "255",
+                        type: "text",
                     },
                     {
                         name: "description",
-                        type: "text",
+                        type: "varchar",
+                        length: "1000",
                     },
                     {
                         name: "date",

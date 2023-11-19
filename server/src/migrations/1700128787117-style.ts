@@ -20,12 +20,13 @@ export class Styles1700128787117 implements MigrationInterface {
                     },
                     {
                         name: "text",
-                        type: "longtext",
+                        type: "varchar",
+                        length: "1000",
                     },
                     {
                         name: "image",
                         type: "varchar",
-                        length: "2084",
+                        length: "1000",
                     },
                 ],
             }),

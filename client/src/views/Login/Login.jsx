@@ -119,7 +119,7 @@ export default function Login() {
                         className={style.loginFormButtonsSubmit}
                         onClick={onSubmit}
                     >
-                        Registrarse
+                        Inicia Sesión
                     </div>
                     <div className={style.loginFormButtonsRedirect}>
                         ¿Aún no tienes una cuenta?{" "}

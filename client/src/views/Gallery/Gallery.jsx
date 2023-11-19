@@ -27,10 +27,10 @@ export default function Gallery() {
 
         gallery.forEach((e) => {
             switch (e.style) {
-                case "piercing":
+                case "PIERCING":
                     updatedPiercings.push(e);
                     break;
-                case "laser":
+                case "ELIMINACION LASER":
                     updatedLasers.push(e);
                     break;
                 default:

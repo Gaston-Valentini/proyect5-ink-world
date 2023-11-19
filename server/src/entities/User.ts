@@ -27,7 +27,7 @@ export class User extends BaseEntity {
     @Column()
     phone!: number;
 
-    @Column({ default: "" })
+    @Column({ default: "", length: 1000 })
     description!: string;
 
     @Column({ default: "" })

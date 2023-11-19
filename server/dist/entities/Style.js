@@ -23,11 +23,11 @@ __decorate([
     __metadata("design:type", String)
 ], Style.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ length: 1000 }),
     __metadata("design:type", String)
 ], Style.prototype, "text", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ length: 1000 }),
     __metadata("design:type", String)
 ], Style.prototype, "image", void 0);
 exports.Style = Style = __decorate([

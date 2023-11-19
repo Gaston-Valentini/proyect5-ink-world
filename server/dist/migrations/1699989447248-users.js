@@ -51,7 +51,9 @@ class Users1699989447248 {
                     },
                     {
                         name: "description",
-                        type: "longtext",
+                        type: "varchar",
+                        length: "1000",
+                        default: "''",
                     },
                     {
                         name: "style",
@@ -62,7 +64,7 @@ class Users1699989447248 {
                     {
                         name: "image",
                         type: "varchar",
-                        length: "2084",
+                        length: "1000",
                         default: "'https://www.shutterstock.com/image-vector/avatar-man-icon-profile-placeholder-600nw-1229859850.jpg'",
                     },
                     {

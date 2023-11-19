@@ -1,5 +1,4 @@
 .tattooArtist {
-    max-width: 700px;
     display: flex;
     align-items: center;
     gap: 50px;
@@ -25,6 +24,7 @@
 }
 
 .tattooArtistDataText {
+    max-width: 400px;
     font-size: 16px;
     font-family: var(--secondaryFont);
     font-weight: 100;
@@ -33,11 +33,14 @@
 
 .tattooArtistImage {
     height: 300px;
+    width: 210px;
     border: 2px solid var(--gold);
 }
 
 .tattooArtistImage img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 600px) {
