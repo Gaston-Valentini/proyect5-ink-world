@@ -41,10 +41,6 @@ export default function MakeAppointment() {
         getData();
     }, []);
 
-    useEffect(() => {
-        console.log(fields);
-    }, [fields]);
-
     const onInput = (e) => {
         setFields((prevState) => ({
             ...prevState,

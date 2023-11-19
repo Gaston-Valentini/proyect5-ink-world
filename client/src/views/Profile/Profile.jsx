@@ -27,41 +27,30 @@ export default function Profile() {
         : null;
 
     useEffect(() => {
-        if (!isAuthenticated()) {
-            navigate("/login");
-        } else {
-            if (token.role === "client") {
-                useEffect(() => {
-                    const getData = async () => {
-                        const res = await axios.get(
-                            `http://localhost:3000/user/getUser/${token.id}`
-                        );
-                        setUser(res.data.userFound);
-                        const res2 = await axios.get(
-                            `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
-                        );
-                        setAppointments(res2.data.appointments);
-                    };
-
-                    getData();
-                }, []);
+        const fetchData = async () => {
+            if (!isAuthenticated()) {
+                navigate("/login");
             } else {
-                useEffect(() => {
-                    const getData = async () => {
-                        const res = await axios.get(
-                            `http://localhost:3000/user/getUser/${token.id}`
-                        );
-                        setUser(res.data.userFound);
-                        const res2 = await axios.get(
-                            `http://localhost:3000/appointment/getMyAppointmentsTattooArtist/${token.id}`
-                        );
-                        setAppointments(res2.data.appointments);
-                    };
+                const res = await axios.get(
+                    `http://localhost:3000/user/getUser/${token.id}`
+                );
+                setUser(res.data.userFound);
 
-                    getData();
-                }, []);
+                if (token.role === "client") {
+                    const res2 = await axios.get(
+                        `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
+                    );
+                    setAppointments(res2.data.appointments);
+                } else {
+                    const res2 = await axios.get(
+                        `http://localhost:3000/appointment/getMyAppointmentsTattooArtist/${token.id}`
+                    );
+                    setAppointments(res2.data.appointments);
+                }
             }
-        }
+        };
+
+        fetchData();
     }, [navigate, token]);
 
     const onLogout = () => {
