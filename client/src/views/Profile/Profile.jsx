@@ -7,6 +7,7 @@ import axios from "axios";
 import { convertDate } from "../../functions/convertDate";
 import { validateField } from "../../validations/validateField";
 import AppointmentCard from "../../components/AppointmentCard/AppointmentCard";
+import { isAuthenticated } from "../../functions/isAuthenticated";
 
 export default function Profile() {
     const navigate = useNavigate();
@@ -22,37 +23,48 @@ export default function Profile() {
         phone: "",
     });
 
-    if (token.role === "client") {
-        useEffect(() => {
-            const getData = async () => {
-                const res = await axios.get(
-                    `http://localhost:3000/user/getUser/${token.id}`
-                );
-                setUser(res.data.userFound);
-                const res2 = await axios.get(
-                    `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
-                );
-                setAppointments(res2.data.appointments);
-            };
+    useEffect(() => {
+        if (!isAuthenticated()) {
+            navigate("/login");
+        } else {
+            if (token.role === "client") {
+                useEffect(() => {
+                    const getData = async () => {
+                        const res = await axios.get(
+                            `http://localhost:3000/user/getUser/${token.id}`
+                        );
+                        setUser(res.data.userFound);
+                        const res2 = await axios.get(
+                            `http://localhost:3000/appointment/getMyAppointmentsClient/${token.id}`
+                        );
+                        setAppointments(res2.data.appointments);
+                    };
 
-            getData();
-        }, []);
-    } else {
-        useEffect(() => {
-            const getData = async () => {
-                const res = await axios.get(
-                    `http://localhost:3000/user/getUser/${token.id}`
-                );
-                setUser(res.data.userFound);
-                const res2 = await axios.get(
-                    `http://localhost:3000/appointment/getMyAppointmentsTattooArtist/${token.id}`
-                );
-                setAppointments(res2.data.appointments);
-            };
+                    getData();
+                }, []);
+            } else {
+                useEffect(() => {
+                    const getData = async () => {
+                        const res = await axios.get(
+                            `http://localhost:3000/user/getUser/${token.id}`
+                        );
+                        setUser(res.data.userFound);
+                        const res2 = await axios.get(
+                            `http://localhost:3000/appointment/getMyAppointmentsTattooArtist/${token.id}`
+                        );
+                        setAppointments(res2.data.appointments);
+                    };
 
-            getData();
-        }, []);
-    }
+                    getData();
+                }, []);
+            }
+        }
+    }, [navigate, token]);
+
+    const onLogout = () => {
+        localStorage.clear();
+        navigate("login");
+    };
 
     const onInput = (e) => {
         const { name, value } = e.target;
@@ -124,6 +136,12 @@ export default function Profile() {
                     </div>
                     <div className={style.profileDataActualUpdated}>
                         Ultima actialización: {convertDate(user.updatedAt)}
+                    </div>
+                    <div
+                        className={style.profileDataActualLogout}
+                        onClick={onLogout}
+                    >
+                        Cerrar Sesión
                     </div>
                 </div>
                 <div className={style.profileDataForm}>

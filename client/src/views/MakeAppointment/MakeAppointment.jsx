@@ -4,9 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { isAuthenticated } from "../../functions/isAuthenticated";
 
 export default function MakeAppointment() {
     const navigate = useNavigate();
+    useEffect(() => {
+        if (!isAuthenticated()) {
+            navigate("/login");
+        }
+    }, []);
+
     const [tattooArtists, setTattooArtists] = useState([]);
     const [tattooStyles, setTattooStyles] = useState([]);
     const [fields, setFields] = useState({

@@ -41,6 +41,21 @@
     border: 2px solid var(--gold);
 }
 
+.profileDataActualLogout {
+    width: max-content;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: var(--secondaryFont);
+    color: var(--white);
+    border: 2px solid var(--gold);
+}
+.profileDataActualLogout:hover {
+    cursor: pointer;
+    color: var(--black);
+    background-color: var(--gold);
+}
+
 .profileDataForm {
     display: flex;
     flex-direction: column;

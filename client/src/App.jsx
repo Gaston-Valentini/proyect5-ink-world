@@ -28,7 +28,6 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/advices" element={<div>Advices</div>} />
                     <Route path="/tattoo-artists" element={<TattooArtists />} />
                     <Route
                         path="/make-appointment"

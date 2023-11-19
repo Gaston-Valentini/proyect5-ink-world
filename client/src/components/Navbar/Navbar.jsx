@@ -25,9 +25,6 @@ export default function Navbar() {
                     <Link to={"gallery"} onClick={onMenu}>
                         Galería de Trabajos
                     </Link>
-                    <Link to={"advices"} onClick={onMenu}>
-                        Consejos y Cuidados
-                    </Link>
                     <Link to={"tattoo-artists"} onClick={onMenu}>
                         Tatuadores
                     </Link>
