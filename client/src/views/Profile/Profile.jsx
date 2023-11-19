@@ -11,7 +11,6 @@ import { isAuthenticated } from "../../functions/isAuthenticated";
 
 export default function Profile() {
     const navigate = useNavigate();
-    const token = jwtDecode(localStorage.getItem("token"));
     const [user, setUser] = useState({});
     const [appointments, setAppointments] = useState([]);
     const [data, setData] = useState({});
@@ -22,6 +21,10 @@ export default function Profile() {
         password: "",
         phone: "",
     });
+
+    const token = isAuthenticated()
+        ? jwtDecode(localStorage.getItem("token"))
+        : null;
 
     useEffect(() => {
         if (!isAuthenticated()) {
