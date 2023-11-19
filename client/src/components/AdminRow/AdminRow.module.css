@@ -1,0 +1,38 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.row input {
+    font-family: var(--secondaryFont);
+    font-weight: 100;
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    color: white;
+}
+
+.rowUpdate {
+    font-family: var(--secondaryFont);
+    font-weight: 800;
+    text-align: center;
+    background-color: rgb(70, 117, 0);
+    border: 1px solid var(--white);
+    color: var(--black);
+}
+.rowUpdate:hover {
+    cursor: pointer;
+    background-color: rgb(153, 255, 0);
+}
+
+.rowDelete {
+    font-family: var(--secondaryFont);
+    font-weight: 800;
+    text-align: center;
+    background-color: rgb(121, 5, 5);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+.rowDelete:hover {
+    cursor: pointer;
+    background-color: red;
+}

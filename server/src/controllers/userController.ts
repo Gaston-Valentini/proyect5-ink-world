@@ -46,4 +46,30 @@ const updateUser = async (req: Request, res: Response) => {
     }
 };
 
-export { getUser, getTattooArtists, updateUser };
+const deleteUser = async (req: Request, res: Response) => {
+    const userId = parseInt(req.params.id);
+
+    const userToDelete = await User.findOne({ where: { id: userId } });
+
+    User.delete(userToDelete!.id);
+
+    return res.json({
+        success: true,
+        message: "Usuario Eliminado",
+    });
+};
+
+const getAllUsers = async (req: Request, res: Response) => {
+    try {
+        const users = await User.find();
+
+        return res.json({
+            success: true,
+            users,
+        });
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export { getUser, getTattooArtists, updateUser, getAllUsers, deleteUser };

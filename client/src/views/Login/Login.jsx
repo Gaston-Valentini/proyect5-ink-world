@@ -60,6 +60,9 @@ export default function Login() {
                         password: res.data.message,
                     }));
                 }
+                if (res.data.role === "admin") {
+                    navigate("/admin");
+                }
                 if (res.data.success) {
                     localStorage.setItem("token", res.data.token);
                     navigate("/profile");

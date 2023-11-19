@@ -1,0 +1,18 @@
+.admin {
+    min-height: calc(100vh - 150px);
+    padding: 100px 50px 50px;
+    background-color: var(--black);
+}
+
+.adminColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.adminColumnsName {
+    font-size: 16px;
+    font-family: var(--secondaryFont);
+    font-weight: 800;
+    background-color: var(--gold);
+    border: 1px solid white;
+}

@@ -6,4 +6,6 @@ const router = (0, express_1.Router)();
 router.get("/getUser/:id", userController_1.getUser);
 router.get("/getTattooArtists", userController_1.getTattooArtists);
 router.post("/updateProfile/:id", userController_1.updateUser);
+router.delete("/deleteUser/:id", userController_1.deleteUser);
+router.get("/getAllUsers", userController_1.getAllUsers);
 exports.default = router;

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.getTattooArtists = exports.getUser = void 0;
+exports.deleteUser = exports.getAllUsers = exports.updateUser = exports.getTattooArtists = exports.getUser = void 0;
 const User_1 = require("../entities/User");
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -54,3 +54,26 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.updateUser = updateUser;
+const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = parseInt(req.params.id);
+    const userToDelete = yield User_1.User.findOne({ where: { id: userId } });
+    User_1.User.delete(userToDelete.id);
+    return res.json({
+        success: true,
+        message: "Usuario Eliminado",
+    });
+});
+exports.deleteUser = deleteUser;
+const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield User_1.User.find();
+        return res.json({
+            success: true,
+            users,
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
+exports.getAllUsers = getAllUsers;

@@ -15,6 +15,7 @@ import Gallery from "./views/Gallery/Gallery";
 import MakeAppointment from "./views/MakeAppointment/MakeAppointment";
 import Contact from "./views/Contact/Contact";
 import Profile from "./views/Profile/Profile";
+import Admin from "./views/Admin/Admin";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                     />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/admin" element={<Admin />} />
                 </Routes>
             </div>
         </Router>
