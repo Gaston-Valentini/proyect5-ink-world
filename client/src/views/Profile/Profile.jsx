@@ -51,7 +51,7 @@ export default function Profile() {
         };
 
         fetchData();
-    }, [navigate, token]);
+    }, []);
 
     const onLogout = () => {
         localStorage.clear();
@@ -83,7 +83,6 @@ export default function Profile() {
                     `http://localhost:3000/user/updateProfile/${token.id}`,
                     data
                 );
-                console.log(res);
                 navigate("/");
             } catch (error) {
                 console.log(error);
@@ -93,6 +92,10 @@ export default function Profile() {
                 }));
             }
         }
+    };
+
+    const onAdmin = () => {
+        navigate("/admin");
     };
 
     return (
@@ -135,6 +138,14 @@ export default function Profile() {
                     >
                         Cerrar Sesión
                     </div>
+                    {token && token.role === "admin" && (
+                        <div
+                            className={style.profileDataActualLogout}
+                            onClick={onAdmin}
+                        >
+                            Panel de admin
+                        </div>
+                    )}
                 </div>
                 <div className={style.profileDataForm}>
                     <div className={style.profileDataRormTitle}>

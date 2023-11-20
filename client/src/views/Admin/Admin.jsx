@@ -33,18 +33,11 @@ export default function Admin() {
     return (
         <div className={style.admin}>
             <div className={style.adminColumns}>
-                <div className={style.adminColumnsName}>id</div>
                 <div className={style.adminColumnsName}>name</div>
                 <div className={style.adminColumnsName}>surname</div>
                 <div className={style.adminColumnsName}>email</div>
-                <div className={style.adminColumnsName}>password</div>
                 <div className={style.adminColumnsName}>phone</div>
-                <div className={style.adminColumnsName}>style</div>
                 <div className={style.adminColumnsName}>role</div>
-                <div className={style.adminColumnsName}>image</div>
-                <div className={style.adminColumnsName}>createdAt</div>
-                <div className={style.adminColumnsName}>updatedAt</div>
-                <div className={style.adminColumnsName}>description</div>
             </div>
             <div className={style.adminRows}>
                 {users.map((e) => (

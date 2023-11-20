@@ -44,6 +44,10 @@
     background-color: var(--black);
 }
 
+.formSectionInput:focus {
+    color: var(--black);
+}
+
 .formSection textarea {
     height: 100px;
     border: none;
